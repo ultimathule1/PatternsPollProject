@@ -1,5 +1,10 @@
 package dev;
 
+import dev.analyze.strategy.AnalyzerStrategy;
+import dev.analyze.strategy.FullCountStrategy;
+import dev.analyze.strategy.LeastFrequentAnswerStrategy;
+import dev.analyze.strategy.MostFrequentAnswerStrategy;
+
 public class Main {
     public static void main(String[] args ) {
         Poll poll = Poll.builder()
@@ -31,5 +36,13 @@ public class Main {
                     .withAnswerVariant("Creativity")
                 .and()
                 .build();
+
+
+
+        AnalyzerStrategy fullCounterStrategy = new FullCountStrategy();
+        AnalyzerStrategy leastFrequentAnswerStrategy = new LeastFrequentAnswerStrategy();
+        AnalyzerStrategy MostFrequentAnswerStrategy = new MostFrequentAnswerStrategy();
+
+
     }
 }
