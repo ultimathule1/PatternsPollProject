@@ -11,12 +11,12 @@ public class MostFrequentAnswerStrategy implements AnalyzerStrategy{
         questionStatisticsList.forEach(q -> {
             System.out.println("Question: " + q.questionTitle());
 
-            Map.Entry<String, Integer> minAnswer = q.userSelectedVariantsCount().entrySet().stream()
+            Map.Entry<String, Integer> minAnswer = q.selectedVariantsCount().entrySet().stream()
                     .max(Map.Entry.comparingByValue()).orElseThrow();
 
-            System.out.println("Most popular answer: "
+            System.out.println("The most popular answer: "
                     + minAnswer.getKey());
-            System.out.println("Has been selected " + minAnswer.getValue() + " times");
+            System.out.println(minAnswer.getValue() + " selected this option\n");
         });
     }
 }

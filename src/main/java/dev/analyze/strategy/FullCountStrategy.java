@@ -7,15 +7,14 @@ import java.util.List;
 public class FullCountStrategy implements AnalyzerStrategy{
     @Override
     public void makeAnalyze(List<QuestionStatistics> questionStatisticsList) {
-        int totalAnswers = questionStatisticsList.stream()
-                .mapToInt(q -> q.selectedVariantsCount().values().stream().reduce(0, Integer::sum))
-                .sum();
+        int totalUsersChose = questionStatisticsList.getFirst().userSelectedVariantsCount().size();
 
         questionStatisticsList.forEach(questionStatistics -> {
             System.out.println("Question: " + questionStatistics.questionTitle());
             questionStatistics.selectedVariantsCount().forEach((variant, count) -> {
-                System.out.println(count + " of " + totalAnswers + " chose: " + variant);
+                System.out.println(count + " out of " + totalUsersChose + " chose: " + variant);
             });
+            System.out.println();
         });
     }
 }

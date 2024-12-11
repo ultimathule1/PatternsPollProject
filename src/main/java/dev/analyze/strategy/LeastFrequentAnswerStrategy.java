@@ -11,12 +11,12 @@ public class LeastFrequentAnswerStrategy implements AnalyzerStrategy {
         questionStatisticsList.forEach(q -> {
             System.out.println("Question: " + q.questionTitle());
 
-            Map.Entry<String, Integer> minAnswer = q.userSelectedVariantsCount().entrySet().stream()
+            Map.Entry<String, Integer> minAnswer = q.selectedVariantsCount().entrySet().stream()
                     .min(Map.Entry.comparingByValue()).orElseThrow();
 
-            System.out.println("least popular answer: "
+            System.out.println("The least popular answer: "
                     + minAnswer.getKey());
-            System.out.println("Has been selected " + minAnswer.getValue() + " times");
+            System.out.println(minAnswer.getValue() + " selected this option\n");
         });
     }
 }

@@ -34,12 +34,15 @@ public class PollAnalyzer {
             for (PollQuestionResponse questionResponse : pollFillingData.responses()) {
                 String questionName = questionResponse.pollQuestion().getTitle();
 
-                QuestionStatistics questionStatisticsCurrent = new QuestionStatistics(
+                //Добавление вопроса в список
+                QuestionStatistics questionStatisticsNew = new QuestionStatistics(
                         questionName,
                         new HashMap<>(),
                         new HashMap<>()
                 );
+                questionStatisticsMap.putIfAbsent(questionName, questionStatisticsNew);
 
+                QuestionStatistics questionStatisticsCurrent = questionStatisticsMap.get(questionName);
                 //Подсчет выбраных ответов
                 questionResponse.selectedVariants().forEach(selectedVariant -> {
                             questionStatisticsCurrent.selectedVariantsCount()
@@ -50,7 +53,7 @@ public class PollAnalyzer {
                 questionStatisticsCurrent.userSelectedVariantsCount()
                         .merge(user, questionResponse.selectedVariants().size(), Integer::sum);
 
-                questionStatisticsMap.put(user, questionStatisticsCurrent);
+                questionStatisticsMap.put(questionName, questionStatisticsCurrent);
             }
         }
 
