@@ -1,6 +1,7 @@
 package dev;
 
 import dev.analyze.PollAnalyzer;
+import dev.analyze.PollAnalyzerProxy;
 import dev.analyze.strategy.AnalyzerStrategy;
 import dev.analyze.strategy.FullCountStrategy;
 import dev.analyze.strategy.LeastFrequentAnswerStrategy;
@@ -49,15 +50,13 @@ public class Main {
         AnalyzerStrategy leastFrequentAnswerStrategy = new LeastFrequentAnswerStrategy();
         AnalyzerStrategy MostFrequentAnswerStrategy = new MostFrequentAnswerStrategy();
 
-        System.out.println("\n/_____________FULL_COUNTER_STRATEGY_____________\\\n");
-        PollAnalyzer analyzer = new PollAnalyzer(fullCounterStrategy);
+        PollAnalyzer delegateAnalyzer = new PollAnalyzer(fullCounterStrategy);
+        PollAnalyzer analyzer = new PollAnalyzerProxy(delegateAnalyzer);
         analyzer.analyzePoll(pollFillingDataList);
 
-        System.out.println("\n/_____________LEAST_FREQUENT_STRATEGY_____________\\\n");
         analyzer.changeAnalyzerStrategy(leastFrequentAnswerStrategy);
         analyzer.analyzePoll(pollFillingDataList);
 
-        System.out.println("\n/_____________MOST_FREQUENT_STRATEGY_____________\\\n");
         analyzer.changeAnalyzerStrategy(MostFrequentAnswerStrategy);
         analyzer.analyzePoll(pollFillingDataList);
     }

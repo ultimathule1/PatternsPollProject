@@ -4,7 +4,6 @@ import dev.PollFillingData;
 import dev.PollQuestionResponse;
 import dev.analyze.strategy.AnalyzerStrategy;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +23,7 @@ public class PollAnalyzer {
         List<QuestionStatistics> statistics = collectStatistics(pollFillingDataList);
         strategy.makeAnalyze(statistics);
     }
+
 
     private List<QuestionStatistics> collectStatistics(List<PollFillingData> pollFillingDataList) {
         Map<String, QuestionStatistics> questionStatisticsMap = new HashMap<>();
@@ -45,9 +45,9 @@ public class PollAnalyzer {
                 QuestionStatistics questionStatisticsCurrent = questionStatisticsMap.get(questionName);
                 //Подсчет выбраных ответов
                 questionResponse.selectedVariants().forEach(selectedVariant -> {
-                            questionStatisticsCurrent.selectedVariantsCount()
-                                    .merge(selectedVariant, 1, Integer::sum);
-                        });
+                    questionStatisticsCurrent.selectedVariantsCount()
+                            .merge(selectedVariant, 1, Integer::sum);
+                });
 
                 //Подсчет количества ответов от конкретного юзера
                 questionStatisticsCurrent.userSelectedVariantsCount()
