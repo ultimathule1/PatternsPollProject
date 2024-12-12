@@ -4,6 +4,9 @@ import dev.builders.PollQuestionBuilder;
 
 import java.util.List;
 
+/**
+ *
+ */
 public class PollQuestion {
     private final String title;
     private final int minAnswers;
