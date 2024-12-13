@@ -1,7 +1,7 @@
 package dev.analyze;
 
-import dev.PollFillingData;
-import dev.PollQuestionResponse;
+import dev.poll.PollFillingData;
+import dev.poll.PollQuestionResponse;
 import dev.analyze.strategy.AnalyzerStrategy;
 
 import java.util.HashMap;

@@ -1,6 +1,6 @@
 package dev.analyze;
 
-import dev.PollFillingData;
+import dev.poll.PollFillingData;
 import dev.analyze.strategy.AnalyzerStrategy;
 
 import java.lang.reflect.Field;

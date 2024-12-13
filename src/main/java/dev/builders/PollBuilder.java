@@ -1,7 +1,7 @@
 package dev.builders;
 
-import dev.Poll;
-import dev.PollQuestion;
+import dev.poll.Poll;
+import dev.poll.PollQuestion;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ public class PollBuilder {
 
     public PollBuilder() {
         pollName = "Empty Name";
-        pollQuestionList = new ArrayList<PollQuestion>();
+        pollQuestionList = new ArrayList<>();
     }
 
     public String getPollName() {
