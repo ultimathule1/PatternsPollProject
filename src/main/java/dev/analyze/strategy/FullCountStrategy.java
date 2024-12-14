@@ -4,7 +4,7 @@ import dev.analyze.QuestionStatistics;
 
 import java.util.List;
 
-public class FullCountStrategy implements AnalyzerStrategy{
+public class FullCountStrategy implements AnalyzerStrategy {
     @Override
     public void makeAnalyze(List<QuestionStatistics> questionStatisticsList) {
         int totalUsersChose = questionStatisticsList.getFirst().userSelectedVariantsCount().size();

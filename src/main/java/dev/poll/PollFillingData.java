@@ -1,11 +1,12 @@
-package dev;
+package dev.poll;
 
 import java.util.List;
 
 /**
  * Результат заполнения пользователем опроса
- * @param username      имя пользователя
- * @param responses     список ответов, которые дал пользователь
+ *
+ * @param username  имя пользователя
+ * @param responses список ответов, которые дал пользователь
  */
 public record PollFillingData(
         String username,

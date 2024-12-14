@@ -5,7 +5,7 @@ import dev.analyze.QuestionStatistics;
 import java.util.List;
 import java.util.Map;
 
-public class MostFrequentAnswerStrategy implements AnalyzerStrategy{
+public class MostFrequentAnswerStrategy implements AnalyzerStrategy {
     @Override
     public void makeAnalyze(List<QuestionStatistics> questionStatisticsList) {
         questionStatisticsList.forEach(q -> {
